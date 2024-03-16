@@ -22,6 +22,7 @@ public class Principal {
             System.out.println("3 - Listar todas as moedas");
             System.out.println("4 - Calcular total do cofrinho em Reais");
             System.out.println("0 - Encerrar");
+            System.out.print(":");
             // menu principal - fim
 
             opcao = cmd.nextInt();
@@ -49,6 +50,7 @@ public class Principal {
                     System.out.println("2 - Dolar");
                     System.out.println("3 - Euro");
                     System.out.println("0 - Voltar");
+                    System.out.print(":");
                     opcao = cmd.nextInt();
 
                     System.out.print("Digite o valor da moeda que deseja adicionar: ");
@@ -90,6 +92,7 @@ public class Principal {
                     System.out.println("2 - Dolar");
                     System.out.println("3 - Euro");
                     System.out.println("0 - Voltar");
+                    System.out.print(":");
                     opcao = cmd.nextInt();
 
                     System.out.print("Digite o valor da moeda que deseja remover: ");
@@ -101,18 +104,18 @@ public class Principal {
                             continue;
                         // remove uma moeda do tipo Real
                         case 1:
-                            cofrinho.remover(valor, "Real");
+                            cofrinho.remover("Real", valor);
                             break;
                         // remove uma moeda do tipo Dólar
                         case 2:
-                            cofrinho.remover(valor, "Dolar");
+                            cofrinho.remover("Dolar", valor);
                             break;
                         // remove uma moeda do tipo Euro
                         case 3:
-                            cofrinho.remover(valor, "Euro");
+                            cofrinho.remover("Euro", valor);
                             break;
                         default:
-                            System.out.println("Opção invalida");
+                            System.out.println("Opcao invalida");
                             break;
                     }
                     break;

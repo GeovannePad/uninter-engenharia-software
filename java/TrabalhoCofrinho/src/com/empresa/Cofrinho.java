@@ -10,7 +10,7 @@ public class Cofrinho {
         listaMoedas.add(moeda);
     }
 
-    public void remover(double valor, String tipo) {
+    public void remover(String tipo, double valor) {
         for (Moeda moeda : listaMoedas) {
             // verifica o tipo e o valor da moeda a ser excluída, para evitar excluir moedas diferentes com o mesmo valor
             if (moeda.getClass().toString().contains(tipo) && moeda.valor == valor) {
