@@ -1,4 +1,4 @@
-#!/home/geovannepad/Repositories/uninter-engenharia-software/MountainShooter/venv/bin/python3
+#!/home/geovannepad/Repositories/uninter-engenharia-software/python/linguagem_programacao/MountainShooter/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

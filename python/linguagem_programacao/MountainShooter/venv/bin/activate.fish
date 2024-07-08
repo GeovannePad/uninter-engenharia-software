@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/geovannepad/Repositories/uninter-engenharia-software/MountainShooter/venv"
+set -gx VIRTUAL_ENV "/home/geovannepad/Repositories/uninter-engenharia-software/python/linguagem_programacao/MountainShooter/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

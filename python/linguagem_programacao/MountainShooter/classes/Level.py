@@ -2,9 +2,11 @@
 
 import random
 import pygame
+from classes.Enemy import Enemy
+from classes.EntityMediator import EntityMediator
 from classes.Const import COLOR_WHITE, EVENT_ENEMY, MENU_OPTION
 from classes.EntityFactory import EntityFactory
-
+from classes.Player import Player
 
 class Level:
     def __init__(self, screen, name, menu_option):
@@ -28,8 +30,18 @@ class Level:
             clock.tick(60)
             for ent in self.entity_list:
                 self.screen.blit(source=ent.surface, dest=ent.rect)
-                self.level_text(15, f"FPS: {clock.get_fps():.0f}", COLOR_WHITE, (10, 10))
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+
+            self.level_text(15, f"FPS: {clock.get_fps():.0f}", COLOR_WHITE, (10, 10))
+            self.level_text(15, f"Entidades: {len(self.entity_list)}", COLOR_WHITE, (10, 20))
+            pygame.display.flip()
+
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -38,8 +50,6 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(("Enemy1", "Enemy2"))
                     self.entity_list.append(EntityFactory.get_entity(choice))
-
-            pygame.display.flip()
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font = pygame.font.SysFont(name="Lucida Sans Typewritter", size=text_size)
