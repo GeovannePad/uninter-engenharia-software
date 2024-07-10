@@ -17,7 +17,6 @@ class Menu:
         menu_option = 0
 
         while True:
-            # Desenhar na tela
             self.screen.blit(source=self.surface, dest=self.rect)
             self.menu_text(50, "Mountain", COLOR_ORANGE, (SCREEN_WIDTH / 2, 70))
             self.menu_text(50, "Shooter", COLOR_ORANGE, (SCREEN_WIDTH / 2, 120))
@@ -30,7 +29,6 @@ class Menu:
 
             pygame.display.flip()
 
-            # Verificar eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
